@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+   body > h1{
+      color: skyblue;
+      width: auto;
+      text-align: center;
+      font: 30px asap,arial;
+
+    }
+    #main{
+      height: 100dp;
+      width: 80%;
+      background-color: white;
+      box-shadow:0svh;
+    }
+  </style>
+</head>
+<body>
+  <h1>Url Shortner</h1>
+  <div class="main">
+    
+<form method="post" action="/url">
+  <label>Enter your URL</label>
+  <input type="text" name="url" placeholder="https://example.com"/>
+  <button type="submit">Genrate</button>
+</form>
+  </div>
+  <% if (locals.id) { %>
+    <p>URL Generated: <%= locals.newUrl %></p>
+  <% } %>
+</body>
+</html>
