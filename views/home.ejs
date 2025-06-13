@@ -1,37 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-   body > h1{
+    body{
+      background-color: rgb(49, 48, 48);
+      color: white;
+
+    }
+    body>h1 {
       color: skyblue;
       width: auto;
       text-align: center;
-      font: 30px asap,arial;
+      font: 30px asap, arial;
 
     }
-    #main{
+
+    #main {
       height: 100dp;
       width: 80%;
       background-color: white;
-      box-shadow:0svh;
+      box-shadow: 0svh;
     }
   </style>
 </head>
+
 <body>
   <h1>Url Shortner</h1>
   <div class="main">
-    
-<form method="post" action="/url">
-  <label>Enter your URL</label>
-  <input type="text" name="url" placeholder="https://example.com"/>
-  <button type="submit">Genrate</button>
-</form>
+
+    <form method="post" action="/url">
+      <label>Enter your URL</label>
+      <input type="text" name="url" placeholder="https://example.com" />
+      <button type="submit">Genrate</button>
+    </form>
   </div>
-  <% if (locals.id) { %>
-    <p>URL Generated: <%= locals.newUrl %></p>
-  <% } %>
+  <% if(locals.urls){ %>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>ShortID</th>
+          <th>Redirect</th>
+          <th>ShortUrls</th>
+          <th>Clicks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% urls.forEach((url,index)=> {%>
+          <tr>
+            <td>
+              <%= index + 1 %>
+            </td>
+            <td>
+              <%= url.shortId %>
+            </td>
+            <td>
+              <%= url.redirectURL %>
+            </td>
+            <td>
+              <a href="http://localhost:8001/<%= url.shortId %>">http://localhost:8001/<%= url.shortId %></a>
+            </td>
+            <td>
+              <%= url.visitHistory.length %>
+            </td>
+
+          </tr>
+
+          <% }); %>
+      </tbody>
+    </table>
+
+
+    <% } %>
+      <% if (locals.id) { %>
+        <p>URL Generated: <%= locals.newUrl %>
+        </p>
+        <% } %>
 </body>
+
 </html>

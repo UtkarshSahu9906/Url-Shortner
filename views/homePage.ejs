@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #f9f9f9;
+        }
+
+        .logo {
+            font: 900 49px asap, arial;
+            color: #0186da;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 2px #ddd;
+            word-wrap: break-word;
+            text-decoration: none;
+            text-align: center;
+        }
+        #urlbox{
+            height: 300px;
+            width: 80%;
+            background-color: white;
+            text-align: center;
+            margin: 20px 20px 20px 20px;
+            
+        } 
+        
+            main {
+  display: block;
+  margin: 0 auto 0 auto;
+  padding: 0 20px;
+  max-width: 1000px;
+  background-color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="logo" >URL Shortner</h1>
+
+
+
+    <main>
+        <section id="urlbox">
+            <div id="main">
+                <h1>Paste the URL to be shortened</h1>
+                <form method="post" action="/url">
+        
+                    <div id="formurl">
+                        <input type="text" name="u" placeholder="Enter the link here">
+                        <div id="formbutton">
+                            <input type="submit" value="Shorten URL">
+                        </div>
+                    </div>
+                </form>
+        
+                <h4>ShortURL is a free tool to shorten URLs and generate short links</h4>
+                <h4>URL shortener allows to create a shortened link making it easy to share</h4>
+        
+            </div>
+        </section>
+    </main>
+   
+
+
+
+</body>
+
+</html>

@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const urlRoute = require("./routes/url");
 const staticRoute = require("./routes/staticRouter");
+const userRoute = require('./routes/user');
 
 const { handleGivenId } = require("./controllers/url");
 const { connectMongoDB } = require("./connection");
@@ -21,12 +22,13 @@ app.use(express.urlencoded({extended:false}));
 
 app.use("/url", urlRoute);
 app.use("/",staticRoute);
+app.use("/user",userRoute)
 app.get("/:shortId", handleGivenId);
 
 // Test Routes
 app.get("/url/test", async (req, res) => {
     const allUrls = await Url.find({});
-  return  res.render('home',{
+  return  res.render('homePage',{
         urls:allUrls,
     });
 
