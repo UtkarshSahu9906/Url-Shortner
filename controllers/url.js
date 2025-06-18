@@ -23,7 +23,6 @@ async function handleGivenId(req, res) {
     { shortId: shortId },
     { $push: { visitHistory: { timestamp: Date.now() } } }
   );
-  console.log(entry);
   res.redirect(entry.redirectURL);
 }
 async function handleShowAll(req, res) {
